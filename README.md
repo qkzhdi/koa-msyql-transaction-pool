@@ -1,6 +1,9 @@
-koa-msyql-transaction
+koa-msyql-transaction-pool
 ============
  koa-msyql-transaction is a koa mysql middleware, Inspired by [express-myconnection](https://github.com/pwalczyszyn/express-myconnection). it provides a consistent API for MySQL connections during koa request/response life cycle. It supports three different strategies of managing db connections: ` single ` for a singleton connection on an app instance level, `pool` based connections, and a new connection per each `request`. It’s also capable of auto closing/releasing connections if configured either with `pool` or `request`. It uses [node-mysql](https://github.com/felixge/node-mysql) as a MySQL driver.
+
+ note: This project is based on [koa-msyql-transaction](https://github.com/lix059/koa-msyql-transaction) The following changes have been made: 
+ - In the `beginTransaction.release()` function, within the `switch` statement for `case 'pool':`, a missing `break` statement has been added to prevent fall-through behavior.
 
 
 ### Install
